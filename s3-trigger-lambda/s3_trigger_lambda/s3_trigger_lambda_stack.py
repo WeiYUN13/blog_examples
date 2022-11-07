@@ -20,7 +20,7 @@ class S3TriggerLambdaStack(Stack):
 
         # create s3 buckets
         s3_bucket = s3.Bucket(self, "my_s3_bucket")
-
+        s3_bucket.grant_read(function)
         # s3 notification to lambda function
         notification = aws_s3_notifications.LambdaDestination(function)
 
